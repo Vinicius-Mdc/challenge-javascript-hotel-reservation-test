@@ -67,23 +67,23 @@ function getCheapestHotel(input) {
     },
   ];
 
-  const inputSplit = input.split(": ");
-  const dates = getDates(inputSplit[1].split(", "));
+  const [clientType, clientDates] = input.split(": ");
+  const dates = getDates(clientDates.split(", "));
   let cheapestHotel;
   for (let i = 0; i < hotels.length; i++) {
     let price = 0;
     for (let j = 0; j < dates.length; j++) {
       const day = dates[j].getDay();
       if (day <= 5 && day >= 1) {
-        if (inputSplit[0] === "Regular") {
+        if (clientType === "Regular") {
           price += hotels[i].taxes.weekdays.normal;
-        } else if (inputSplit[0] === "Rewards") {
+        } else if (clientType === "Rewards") {
           price += hotels[i].taxes.weekdays.fidelityProgram;
         }
       } else {
-        if (inputSplit[0] === "Regular") {
+        if (clientType === "Regular") {
           price += hotels[i].taxes.weekends.normal;
-        } else if (inputSplit[0] === "Rewards") {
+        } else if (clientType === "Rewards") {
           price += hotels[i].taxes.weekends.fidelityProgram;
         }
       }
