@@ -22,51 +22,7 @@ function getDates(dates) {
 }
 
 function getCheapestHotel(input) {
-  const hotels = [
-    {
-      name: "Lakewood",
-      classification: 3,
-      taxes: {
-        weekdays: {
-          normal: 110,
-          fidelityProgram: 80,
-        },
-        weekends: {
-          normal: 90,
-          fidelityProgram: 80,
-        },
-      },
-    },
-    {
-      name: "Bridgewood",
-      classification: 4,
-      taxes: {
-        weekdays: {
-          normal: 160,
-          fidelityProgram: 110,
-        },
-        weekends: {
-          normal: 60,
-          fidelityProgram: 50,
-        },
-      },
-    },
-    {
-      name: "Ridgewood",
-      classification: 5,
-      taxes: {
-        weekdays: {
-          normal: 220,
-          fidelityProgram: 100,
-        },
-        weekends: {
-          normal: 150,
-          fidelityProgram: 40,
-        },
-      },
-    },
-  ];
-
+  const hotels = require("./data/hotels.json");
   const [clientType, clientDates] = input.split(": ");
   const dates = getDates(clientDates.split(", "));
   let cheapestHotel;
